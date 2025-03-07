@@ -171,5 +171,5 @@ Here are **20 assignments** to help you practice and build confidence in backend
 
 ---
 
-Feel free to reach out if you need help with any of these assignments! 😊
+
 
