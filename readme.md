@@ -1,6 +1,6 @@
 # 🚀 Backend Practice Hub
 
-Welcome to **Backend Practice Hub**! This project is a collection of backend development assignments designed to help you master **Node.js** and **Express.js**. Whether you're preparing for interviews or just want to sharpen your backend skills, this repository has everything you need to get started.
+Welcome to **Interview Practice Hub**! This project is a collection of backend development assignments designed to help you master **Node.js** and **Express.js**. Whether you're preparing for interviews or just want to sharpen your backend skills, this repository has everything you need to get started.
 
 ---
 
