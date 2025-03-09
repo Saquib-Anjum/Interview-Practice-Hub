@@ -82,4 +82,4 @@ Welcome to **Interview Practice Hub**! This project is a collection of backend d
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Saquib-Anjum/Backend-Practice-Hub.git
+   git clone https://github.com/Saquib-Anjum/Interview-Practice-Hub.git
