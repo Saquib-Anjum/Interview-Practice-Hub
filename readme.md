@@ -14,7 +14,7 @@ Welcome to **Backend Practice Hub**! This project is a collection of backend dev
     <div>---------------------------------</div>
     <div></div>
   <a href="https://github.com/Saquib-Anjum/Backend-Practice-Hub/blob/main/Backend-Interview-Assignment.md">
-    <button>🎯Backendd Interview Assignments</button>
+    <button>🎯Backend Interview Assignments</button>
   </a>
     <div></div>
     <div>---------------------------------</div>
