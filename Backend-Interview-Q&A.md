@@ -1,6 +1,6 @@
 # 🚀 50 Backend Interview Questions with Detailed Answers
 
-Here’s a comprehensive list of 50 backend interview questions with detailed and advanced answers to help you prepare for your next backend development interview.
+Here's a comprehensive list of 50 backend interview questions with detailed and advanced answers to help you prepare for your next backend development interview.
 
 ## Node.js Questions
 
@@ -30,7 +30,7 @@ Here’s a comprehensive list of 50 backend interview questions with detailed an
    Express.js is a web application framework for Node.js that simplifies the creation of APIs and web servers. It provides features like routing, middleware support, and template engines.
 
 7. **What is middleware in Express.js?**  
-   Middleware is a function that has access to the request (`req`), response (`res`), and the next middleware in the application’s request-response cycle. Middleware can:
+   Middleware is a function that has access to the request (`req`), response (`res`), and the next middleware in the application's request-response cycle. Middleware can:
    - Execute code.
    - Modify `req` and `res` objects.
    - End the request-response cycle.
@@ -119,7 +119,7 @@ XSS is a security vulnerability where an attacker injects malicious scripts into
 - Using Content Security Policy (CSP).
 
 ### 23. What is CSRF (Cross-Site Request Forgery)?
-CSRF is an attack where an attacker tricks a user into performing actions they didn’t intend to. Prevention methods include:
+CSRF is an attack where an attacker tricks a user into performing actions they didn't intend to. Prevention methods include:
 
 - Using anti-CSRF tokens.
 - Validating the origin of requests.
@@ -236,7 +236,58 @@ Event-driven architecture is a design pattern where the flow of the program is d
 ## Security Questions (Continued)
 
 ### 51. What is OWASP Top 10?
-**Answer:** OWASP Top 10 is a list of the most critical security risks to web applications. It includes vulnerabilities like injection, broken authentication, and sensitive data exposure.
+**Answer:** OWASP Top 10 is a list of the most critical security risks to web applications, updated periodically by the Open Web Application Security Project. The current (2021) OWASP Top 10 includes:
+
+1. **Broken Access Control**
+   - Improper access restrictions
+   - Insecure direct object references
+   - Path traversal vulnerabilities
+
+2. **Cryptographic Failures**
+   - Sensitive data exposure
+   - Weak encryption
+   - Transmission of sensitive data in cleartext
+
+3. **Injection**
+   - SQL injection
+   - NoSQL injection
+   - Command injection
+   - LDAP injection
+
+4. **Insecure Design**
+   - Missing security controls
+   - Poor threat modeling
+   - Insecure business logic
+
+5. **Security Misconfiguration**
+   - Default credentials
+   - Error messages with sensitive data
+   - Disabled security features
+
+6. **Vulnerable and Outdated Components**
+   - Using components with known vulnerabilities
+   - Outdated or unsupported software
+   - Insecure dependencies
+
+7. **Identification and Authentication Failures**
+   - Broken authentication
+   - Session management flaws
+   - Weak password policies
+
+8. **Software and Data Integrity Failures**
+   - Code integrity issues
+   - Malicious updates
+   - Insecure CI/CD pipelines
+
+9. **Security Logging and Monitoring Failures**
+   - Insufficient logging
+   - Poor monitoring
+   - Missing intrusion detection
+
+10. **Server-Side Request Forgery (SSRF)**
+    - Unauthorized server requests
+    - Access to internal services
+    - Cloud service attacks
 
 ### 52. What is a security token?
 **Answer:** A security token is a piece of data used to authenticate a user or request. Examples include JWT (JSON Web Tokens) and OAuth tokens.
@@ -274,9 +325,54 @@ Event-driven architecture is a design pattern where the flow of the program is d
 ## Miscellaneous Questions (Continued)
 
 ### 61. What is the difference between TCP and UDP?
-**Answer:**
-- **TCP:** Connection-oriented, reliable, and ensures data delivery in order.
-- **UDP:** Connectionless, faster, but does not guarantee delivery or order.
+**Answer:** TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two primary transport layer protocols in the Internet Protocol suite, each serving different purposes:
+
+**TCP (Transmission Control Protocol):**
+- **Connection-oriented:** Establishes a dedicated end-to-end connection before data transfer
+- **Reliability:**
+  - Guarantees delivery of data packets
+  - Implements error checking and correction
+  - Retransmits lost packets
+  - Maintains packet order using sequence numbers
+- **Flow Control:** Uses sliding window mechanism to prevent overwhelming receivers
+- **Congestion Control:** Adjusts transmission rate based on network conditions
+- **Use Cases:**
+  - Web browsing (HTTP/HTTPS)
+  - Email (SMTP)
+  - File transfer (FTP)
+  - Remote administration (SSH)
+- **Header Size:** 20 bytes minimum
+
+**UDP (User Datagram Protocol):**
+- **Connectionless:** No connection establishment required
+- **Simplicity:**
+  - No guarantee of delivery
+  - No packet ordering
+  - No tracking connections
+  - No congestion control
+- **Performance:**
+  - Lower latency due to no handshaking
+  - Faster transmission due to no acknowledgment waiting
+  - Smaller header overhead
+- **Use Cases:**
+  - Online gaming
+  - Live streaming
+  - VoIP (Voice over IP)
+  - DNS queries
+- **Header Size:** 8 bytes
+
+**When to Use Each:**
+- Use TCP when:
+  - Data integrity is critical
+  - You need guaranteed delivery
+  - Order of data matters
+  - The application can handle some latency
+
+- Use UDP when:
+  - Speed is more important than reliability
+  - Real-time communication is required
+  - Small data loss is acceptable
+  - Broadcasting/multicasting is needed
 
 ### 62. What is the difference between HTTP/1.1 and HTTP/2?
 **Answer:**
@@ -295,5 +391,81 @@ Event-driven architecture is a design pattern where the flow of the program is d
 **Answer:**
 - **REST:** Uses HTTP/1.1 and JSON for communication.
 - **gRPC:** Uses HTTP/2 and Protocol Buffers for faster and more efficient communication.
+
+### 66. What are common HTTP request and response headers?
+**Answer:** HTTP headers provide important information about the request or response. Here are key headers:
+
+**Request Headers:**
+- **Origin:** 
+  - Indicates where the request originated from
+  - Example: `Origin: https://www.example.com`
+  - Used in CORS (Cross-Origin Resource Sharing)
+
+- **Host:**
+  - Specifies the domain name of the server
+  - Required in HTTP/1.1
+  - Example: `Host: api.example.com`
+
+- **Authorization:**
+  - Contains authentication credentials
+  - Example: `Authorization: Bearer <token>`
+  - Common formats: Basic, Bearer, Digest
+
+- **Content-Type:**
+  - Indicates the media type of the request body
+  - Example: `Content-Type: application/json`
+  - Common types: application/json, multipart/form-data
+
+- **User-Agent:**
+  - Identifies the client application/browser
+  - Example: `User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)`
+
+- **Accept:**
+  - Specifies which content types the client can process
+  - Example: `Accept: application/json, text/plain`
+
+**Response Headers:**
+- **Access-Control-Allow-Origin:**
+  - Specifies which origins can access the resource
+  - Example: `Access-Control-Allow-Origin: *`
+  - Critical for CORS security
+
+- **Content-Length:**
+  - Size of the response body in bytes
+  - Example: `Content-Length: 2048`
+
+- **Cache-Control:**
+  - Directives for caching mechanisms
+  - Example: `Cache-Control: max-age=3600, must-revalidate`
+
+- **Set-Cookie:**
+  - Sets cookies in the client browser
+  - Example: `Set-Cookie: sessionId=abc123; Secure; HttpOnly`
+
+- **Content-Security-Policy:**
+  - Helps prevent XSS and other injection attacks
+  - Example: `Content-Security-Policy: default-src 'self'`
+
+- **X-Rate-Limit:**
+  - Indicates API rate limiting information
+  - Example: `X-Rate-Limit-Remaining: 48`
+
+**Security-Related Headers:**
+- **X-Frame-Options:**
+  - Controls if page can be embedded in frames
+  - Example: `X-Frame-Options: DENY`
+
+- **Strict-Transport-Security:**
+  - Forces HTTPS connections
+  - Example: `Strict-Transport-Security: max-age=31536000`
+
+- **X-XSS-Protection:**
+  - Controls browser's XSS filtering
+  - Example: `X-XSS-Protection: 1; mode=block`
+
+**Custom Headers:**
+- Often prefixed with 'X-'
+- Used for application-specific purposes
+- Example: `X-Request-ID: 123456789`
 
 
