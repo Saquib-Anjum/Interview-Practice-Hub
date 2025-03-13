@@ -13,7 +13,7 @@ Welcome to **Interview Practice Hub**! This project is a collection of backend d
 6. [💀 Advanced Backend Interview Q&A](#-advanced-backend-interview-qa)
 7. [🥷 Backend Roadmap](#-backend-roadmap)
 8. [40 Backend Practice Questions (Medium & Advanced)](#-40-backend-practice-questions-medium--advanced)
-9. [Full Stack Roadmap (Backend Focused)](Full-Stack-Developer-Roadmap-Backend-Focused)
+9. [Full-Stack Developer Roadmap (Backend-Focused)](Full-Stack-Developer-Roadmap-Backend-Focused)
 ---
 
 ## **📚 Backend Practice Assignments**
