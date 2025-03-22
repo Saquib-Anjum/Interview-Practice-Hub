@@ -5,5 +5,5 @@ import auth from '../middlewares/auth.js'
 userRouter.post('/register',userRegister);
 
 userRouter.post('/register', userLogin)
-userRouter.post('/login',auth, userLogin)
+userRouter.post('/login', userLogin)
 export default userRouter;
