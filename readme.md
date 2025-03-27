@@ -8,12 +8,14 @@ Welcome to **Interview Practice Hub**! This project is a collection of backend d
 1. [📚 Backend Practice Assignments](#-backend-practice-assignments)
 2. [🎯 Backend Interview Assignments](#-backend-interview-assignments)
 3. [🍃 Full Stack Interview Assignments](#-full-stack-interview-assignments)
+   - [30 Front-End Assignments (React Focus)](#-30-front-end-assignments-react-focus)
 4. [📜 Backend Notes](#-backend-notes)
 5. [💖 Backend Interview Q&A](#-backend-interview-qa)
 6. [💀 Advanced Backend Interview Q&A](#-advanced-backend-interview-qa)
 7. [🥷 Backend Roadmap](#-backend-roadmap)
 8. [40 Backend Practice Questions (Medium & Advanced)](#-40-backend-practice-questions-medium--advanced)
-9. [Full-Stack Developer Roadmap (Backend-Focused)](Full-Stack-Developer-Roadmap-Backend-Focused)
+9. [Full-Stack Developer Roadmap (Backend-Focused)](#full-stack-developer-roadmap-backend-focused)
+
 ---
 
 ## **📚 Backend Practice Assignments**
@@ -40,6 +42,14 @@ If you're aiming to become a full-stack developer, these assignments will help y
 <a href="https://github.com/Saquib-Anjum/Backend-Practice-Hub/blob/main/Full-Stack-Assignment.md">
     <button>🍃 Full Stack Interview Assignments</button>
 </a>
+
+### **30 Front-End Assignments (React Focus)**
+<a href="https://github.com/Saquib-Anjum/Interview-Practice-Hub/blob/main/30%20Front-End%20Assignments%20for%20Full-Stack%20Practice%20(React%20Focus).md">
+    <button>🚀 React Front-End Assignments</button>
+</a>
+- Covers **React logic** from easy to advanced.
+- Includes hints for self-paced learning.
+- Perfect for full-stack integration practice.
 
 ---
 
@@ -79,7 +89,6 @@ Follow this roadmap to become a backend development ninja! 🥷
 
 ---
 
-
 ## **40 Backend Practice Questions (Medium & Advanced)**
 Here’s a curated list of **40 unique backend practice questions** to challenge your skills and deepen your understanding of real-world backend development.
 
@@ -89,9 +98,7 @@ Here’s a curated list of **40 unique backend practice questions** to challenge
 
 ---
 
----
-
-## ** Full-Stack Developer Roadmap (Backend-Focused)**
+## **Full-Stack Developer Roadmap (Backend-Focused)**
 Follow this roadmap to become a full-stack development ninja! 
 
 <a href="https://github.com/Saquib-Anjum/Interview-Practice-Hub/blob/main/Full-Stack%20Developer%20Roadmap%20(Backend-Focused).md">
@@ -112,12 +119,11 @@ Follow this roadmap to become a full-stack development ninja!
 
 ## 🛠️ Technologies Used
 
-- **Node.js**: The runtime environment for building the backend.
-- **Express.js**: The web framework for creating APIs.
-- **MongoDB**: A NoSQL database for storing data.
-- **MySQL**: A relational database for structured data.
-- **Redis**: For caching and job queues.
-- **Docker**: For containerization and deployment.
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Databases**: MongoDB, MySQL, Redis
+- **DevOps**: Docker
+- **Testing**: Jest, Postman
 
 ---
 
