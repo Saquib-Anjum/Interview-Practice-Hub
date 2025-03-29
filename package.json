@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "axios": "^1.8.4",
-    "bcrypt": "^5.1.1"
+    "bcrypt": "^5.1.1",
+    "express-rate-limit": "^7.5.0",
+    "leaky-bucket": "^4.1.4",
+    "limiter": "^3.0.0",
+    "sliding-window-rate-limiter": "^6.0.1"
   }
 }
