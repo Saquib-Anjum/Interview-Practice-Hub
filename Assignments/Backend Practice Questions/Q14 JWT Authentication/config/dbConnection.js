@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose';
 import userModel from '../models/userModel.js'
 import dotenv from 'dotenv';

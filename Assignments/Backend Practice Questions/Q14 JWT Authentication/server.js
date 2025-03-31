@@ -1,7 +1,12 @@
 import express from 'express';
+import userRouter from './routes/.js'
+import dontenv from 'dotenv';
+dontenv.config();
 const app = express();
-//api end point 
+app.use(express.json());
 
+//api end point 
+app.use('/api/user',userRouter)
 
 //app listening here
 const PORT = 4000;
