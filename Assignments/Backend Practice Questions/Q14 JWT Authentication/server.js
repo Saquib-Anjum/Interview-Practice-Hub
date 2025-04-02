@@ -1,10 +1,12 @@
 import express from 'express';
-import userRouter from './routes/.js'
-import dontenv from 'dotenv';
-dontenv.config();
+import userRouter from './routes/.js';
+import dbConnection from './config/dbConnection.js';
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 app.use(express.json());
-
+//config
+dbConnection()
 //api end point 
 app.use('/api/user',userRouter)
 
