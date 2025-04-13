@@ -2,7 +2,7 @@
 
 > 🚀 Learn to build AI-powered applications using LLM APIs, automation tools, and open-source models **without Python** — tailored for JavaScript developers.
 
-![AI MERN Banner](https://your-image-link-here.com/banner.png)
+![AI MERN Banner](https://github.com/Saquib-Anjum/Interview-Practice-Hub/blob/main/Zimage/image.png)
 
 ---
 
