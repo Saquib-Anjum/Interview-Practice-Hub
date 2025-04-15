@@ -1,5 +1,10 @@
 {
   "type": "module",
+ "scripts": {
+  "start": "node server.js",
+  "dev": "nodemon server.js"
+  
+},
   "dependencies": {
     "axios": "^1.8.4",
     "bcryptjs": "^3.0.2",
@@ -23,8 +28,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
-  },
-  "scripts": {
-  "seed": "node seed.js"
-}
+  }
+  
 }
