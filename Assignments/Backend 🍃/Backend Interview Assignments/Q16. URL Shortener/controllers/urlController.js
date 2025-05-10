@@ -52,6 +52,7 @@ const redirectUrl = async(req , res)=>{
         url.clicks++;
         await url.save();
         
+        
         return res.redirect(url.longUrl);
     } catch (err) {
         console.error(err);
