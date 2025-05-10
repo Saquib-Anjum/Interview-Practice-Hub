@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import sendEmail from '../utils/sendMail.js';
 //signup controller
 import userModel from '../models/userModel.js'
 
@@ -82,7 +83,26 @@ const login = async (req, res) => {
 
 }
 const otp = async (req, res) => {
+  const { email } = req.body;
   try {
+    let user = await userModel.findOne({ email });
+    if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+    const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiry = new Date(Date.now() + 5 * 60 * 1000);
+
+    user.otp = otpCode;
+    user.otpExpiry = expiry;
+    await user.save();
+
+    const message = `Your OTP is: ${otpCode}. It will expire in 5 minutes.`;
+
+    await sendEmail(email, 'Your OTP Code', message);
+
+    res.json({
+      success: true,
+      message: 'OTP sent to your email address 📩',
+    });
 
   } catch (err) {
     console.log(err);
@@ -94,7 +114,26 @@ const otp = async (req, res) => {
 }
 const verifyOtp = async (req, res) => {
 try{
+  const user = await userModel.findOne({ email });
 
+  if (!user || user.otp !== otp || user.otpExpiry < new Date()) {
+    return res.status(401).json({ success: false, message: 'Invalid or expired OTP' });
+  }
+
+  // Clear OTP after verification
+  user.otp = null;
+  user.otpExpiry = null;
+  await user.save();
+
+  // Generate JWT token
+  const token = tokenGenerater(user._id);
+
+  res.json({
+    success: true,
+    message: 'OTP verified, login successful',
+    token,
+    user,
+  });
 }catch(err){
   console.log(err);
     res.json({
