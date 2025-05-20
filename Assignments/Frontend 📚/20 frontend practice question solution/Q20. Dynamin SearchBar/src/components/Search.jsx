@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 const styles = {
     container: {
 
@@ -53,10 +53,10 @@ const styles = {
     }
 }
 const Search = () => {
-    const baseUrl = "https://dummyjson.com/products/search?q=";
+    // const baseUrl = "https://dummyjson.com/products/search?q=";
     const [query, setQuery] = useState("")
     const [suggestion, setSuggestion] = useState([]);
-    const [selectedIndex,setSelectedIndex] = useState(-1)
+    const [selectedIndex, setSelectedIndex] = useState(-1)
     //handle change
     const handleChange = (e) => {
         setQuery(e.target.value)
@@ -71,32 +71,41 @@ const Search = () => {
 
     //handle key functtion 
     const handleKeyDown = (e) => {
-        if(suggestion.ength===0){
+        if (suggestion.ength === 0) {
             setSelectedIndex(-1);
             return;
         }
         if (e.key === "ArrowDown") {
-           if(selectedIndex<suggestion.length-1){
-            setSelectedIndex(selectedIndex+1);
-           }
+            if (selectedIndex < suggestion.length - 1) {
+                setSelectedIndex(selectedIndex + 1);
+            }
         }
         else if (e.key === "ArrowUp") {
-         if(selectedIndex>0){
-            setSelectedIndex(selectedIndex-1);
-         }
+            if (selectedIndex > 0) {
+                setSelectedIndex(selectedIndex - 1);
+            }
         }
         else {
-         if(selectedIndex!==-1){
-            setQuery(suggestion[selectedIndex].title);
-            setSelectedIndex(-1);
-            setSuggestion([]);
-         }
+            if (selectedIndex !== -1) {
+                setQuery(suggestion[selectedIndex].title);
+                setSelectedIndex(-1);
+                setSuggestion([]);
+            }
         }
     }
+    let timerId = useRef(null);
+    console.log("timerID" + timerId)
     useEffect(() => {
-        if (query.trim().length != 0) {
-            fetchData()
+        //debouncing
+        if(timerId.current !=null){
+            clearTimeout(timerId.current);
         }
+        timerId = setTimeout(() => {
+            if (query.trim().length != 0) {
+                fetchData()
+            }
+        }, 300)
+
 
     }, [query])
     return (
@@ -109,7 +118,11 @@ const Search = () => {
             <div style={styles?.suggestionContainer}>
                 {
                     query.trim().length != 0 && suggestion.map((item, idx) => {
-                        return <div key={idx} style={{...styles?.suggestion,backgroundColor:selectedIndex===idx ?"lightgray":"white"}}>
+                        return <div onClick={() => {
+                            setQuery(item.title);
+                            setSuggestion([]);
+                            setSelectedIndex(-1);
+                        }} key={idx} style={{ ...styles?.suggestion, backgroundColor: selectedIndex === idx ? "lightgray" : "white" }}>
                             <p style={styles?.suggestionText}>{item.title}</p>
                         </div>
                     }
