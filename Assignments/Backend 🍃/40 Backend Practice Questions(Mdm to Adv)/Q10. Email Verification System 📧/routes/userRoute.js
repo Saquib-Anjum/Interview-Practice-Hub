@@ -5,5 +5,5 @@ const userRouter = express();
 //  apiroutes
 userRouter.post('/signup' , signup);
 userRouter.post('/login',login);
-userRouter.post('/verify', verify);
+userRouter.get('/verify', verify);
 export default userRouter;

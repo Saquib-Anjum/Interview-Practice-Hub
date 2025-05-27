@@ -1,8 +1,11 @@
 import express from 'express';
 import userRouter from './routes/userRoute.js'
 import connectDB from './config/connectDB.js';
+import dotenv from 'dotenv'
+dotenv.config();
 const app = express();
 //config
+dotenv.config();
 app.use(express.json());
 connectDB();
 //api end point 
