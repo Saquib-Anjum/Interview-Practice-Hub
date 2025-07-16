@@ -6,72 +6,72 @@ import { ErrorReply } from 'redis';
 import jwt from 'jsonwebtoken'
 //signup
 const signup = async (req, res) => {
-    try{
-        const { name, email, password } = req.body;
+  try {
+    const { name, email, password } = req.body;
     const encryptedPassword = await bcrypt.hash(password, 10);
     const userData = {
-        name,
-        email,
-        password: encryptedPassword
+      name,
+      email,
+      password: encryptedPassword
     }
     const data = new userModel(userData);
     await data.save();
     const token = jwt.sign({ email }, process.env.JWT_SECRET);
     await sendVerificationEmail(email, token);
     res.json({
-        success: true,
-        data,
-        token
+      success: true,
+      data,
+      token
     })
-    }catch(err){
-        console.log(err);
-        res.json({
-            success:false,
-            message:ErrorReply.message
-        })
-    }
+  } catch (err) {
+    console.log(err);
+    res.json({
+      success: false,
+      message: ErrorReply.message
+    })
+  }
 }
 //login
 const login = async (req, res) => {
-    try {
-      const { email, password } = req.body;
-      const user = await userModel.findOne({ email });
-  
-      if (!user) {
-        return res.status(404).json({ success: false, message: 'User not found' });
-      }
-  
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(401).json({ success: false, message: 'Invalid credentials' });
-      }
-  
-      if (!user.isVerified) {
-        return res.status(401).json({ success: false, message: 'Please verify your email first' });
-      }
-  
-      const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-  
-      res.json({
-        success: true,
-        message: 'Login successful',
-        token,
-        data: user
-      });
-    } catch (err) {
-      res.status(500).json({ success: false, message: err.message });
+  try {
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+
+    if (!user.isVerified) {
+      return res.status(401).json({ success: false, message: 'Please verify your email first' });
+    }
+
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    res.json({
+      success: true,
+      message: 'Login successful',
+      token,
+      data: user
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
+}
 
 // verification of email
 
 const verify = async (req, res) => {
-    const { token } = req.query;
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        await userModel.updateOne({ email: decoded.email }, { isVerified: true });
-        res.send(`
-            <!DOCTYPE html>
+  const { token } = req.query;
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    await userModel.updateOne({ email: decoded.email }, { isVerified: true });
+    res.send(`
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -135,8 +135,8 @@ const verify = async (req, res) => {
 </html>
 
             `);
-    } catch (err) {
-        res.status(400).send('Invalid or expired token.');
-    }
+  } catch (err) {
+    res.status(400).send('Invalid or expired token.');
+  }
 }
 export { signup, login, verify };
