@@ -2,14 +2,14 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import userRouter from './routes/userRoute.js';
+import dbConnect from './config/connectDB.js';
 const app = express();
 //api config
 app.use(express.json());
-
 //db connection
-
+dbConnect();
 //api route
-app.use('/user/api',userRouter);
+app.use('/api/user',userRouter);
 const PORT = 3000;
 
 //listening app
