@@ -154,37 +154,42 @@ const verifyEmail = async( req , res)=>{
         await user.save();
 
         // Since this is a browser click, we can send a simple HTML success message
-        res.send(`
-            <div style="
-    font-family: Arial, sans-serif; 
+        res.send(`<div style="
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     text-align: center; 
     padding: 40px; 
-    background: #f4f7fb;
+    background: #eef3ff;
 ">
   
   <div style="
-      max-width: 520px; 
+      max-width: 560px; 
       margin: auto; 
       background: white; 
-      padding: 35px; 
-      border-radius: 16px; 
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 40px; 
+      border-radius: 18px; 
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-in-out;
   ">
 
-      <!-- SUCCESS IMAGE -->
+      <!-- ANIMATED SUCCESS IMAGE -->
       <img 
-        src="https://cdn-icons-png.flaticon.com/512/190/190411.png" 
-        alt="Success" 
-        style="width: 120px; margin-bottom: 20px;"
+        src="https://lottie.host/embed/3c49dedf-0b7e-4a73-8ce3-8fb42ef71811/21krlCxNQf.json"
+        alt="Success Animation"
+        style="width: 180px; margin-bottom: 20px;"
       />
 
-      <h2 style="color: #16a34a; font-size: 26px; margin-bottom: 10px;">
-        Email Verified Successfully 🎉
+      <h2 style="color: #22c55e; font-size: 30px; margin-bottom: 10px;">
+        Email Verified Successfully! 🎉
       </h2>
 
-      <p style="color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
-        Your email has been successfully verified.  
-        You can now close this window and log in to your account.
+      <p style="
+        color: #555; 
+        font-size: 17px; 
+        line-height: 1.7; 
+        margin-bottom: 30px;
+      ">
+        Your email has been verified with an animated celebration!  
+        You can now continue to login and enjoy your account.
       </p>
 
       <!-- BUTTON -->
@@ -193,25 +198,35 @@ const verifyEmail = async( req , res)=>{
             display: inline-block;
             background: #3b82f6;
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 30px;
+            border-radius: 10px;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
-        ">
-        Go to Login Page
+            transition: 0.3s;
+        "
+        onmouseover="this.style.opacity='0.8'"
+        onmouseout="this.style.opacity='1'"
+      >
+        Proceed to Login 🚀
       </a>
 
-      <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;"/>
+      <hr style="margin: 35px 0; border: none; border-top: 1px solid #eee;"/>
 
-      <p style="color: #999; font-size: 14px;">
-        Thank you for joining us.  
-        <br>Need help? Contact support anytime.
+      <p style="color: #888; font-size: 14px;">
+        Thank you for verifying.  
+        If you didn’t request this, please ignore the message.
       </p>
   </div>
 </div>
 
-        `);
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+`);
 
     } catch (error) {
         console.log(error);
