@@ -7,7 +7,7 @@ const createjwt = (id)=>{
     try{
        return jwt.sign({id},process.env.JWT_SECRET);
     }catch(err){
-throw err
+    throw err
     }
 }
 const register =async()=>{
